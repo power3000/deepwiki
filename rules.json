@@ -1,0 +1,14 @@
+[{
+  "id": 1,
+  "priority": 1,
+  "action": {
+    "type": "redirect",
+    "redirect": {
+      "regexSubstitution": "https://deepwiki.com/\\1/\\2"
+    }
+  },
+  "condition": {
+    "regexFilter": "^https?://github\\.com/([^/]+)/([^/]+)(/.*)?$",
+    "resourceTypes": ["main_frame"]
+  }
+}]

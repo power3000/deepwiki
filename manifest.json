@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "DeepWiki Redirect",
+  "version": "1.0",
+  "description": "Redirect GitHub repository pages to DeepWiki",
+  "permissions": [
+    "declarativeNetRequest"
+  ],
+  "host_permissions": [
+    "https://github.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "DeepWiki Redirect"
+  },
+  "declarative_net_request": {
+    "rule_resources": [{
+      "id": "ruleset_1",
+      "enabled": true,
+      "path": "rules.json"
+    }]
+  }
+}
