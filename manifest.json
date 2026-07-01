@@ -2,24 +2,26 @@
   "manifest_version": 3,
   "name": "DeepWiki Redirect",
   "version": "1.0",
-  "description": "Redirect GitHub repository pages to DeepWiki",
+  "description": "Click the icon to redirect current GitHub page to DeepWiki",
   "permissions": [
-    "declarativeNetRequest"
+    "activeTab"
   ],
   "host_permissions": [
-    "https://github.com/*"
+    "https://github.com/*",
+    "https://deepwiki.com/*"
   ],
   "background": {
     "service_worker": "background.js"
   },
   "action": {
-    "default_title": "DeepWiki Redirect"
+    "default_title": "Convert to DeepWiki"
   },
-  "declarative_net_request": {
-    "rule_resources": [{
-      "id": "ruleset_1",
-      "enabled": true,
-      "path": "rules.json"
-    }]
-  }
+  "content_scripts": [{
+    "matches": [
+      "https://github.com/*",
+      "https://deepwiki.com/*"
+    ],
+    "js": ["content.js"],
+    "run_at": "document_end"
+  }]
 }
